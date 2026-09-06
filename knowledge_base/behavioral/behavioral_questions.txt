@@ -1,0 +1,128 @@
+Behavioral Interview Questions and STAR Method
+===============================================
+
+THE STAR METHOD
+---------------
+Situation: Set the scene — where, when, what was happening?
+Task: What was your responsibility? What was the challenge?
+Action: What specific steps did YOU take? (Use "I", not "we")
+Result: What was the outcome? Use metrics where possible. What did you learn?
+
+TEAMWORK AND COLLABORATION
+---------------------------
+Q: Tell me about a time you worked in a team to achieve a difficult goal.
+Good answer elements:
+- Specific project with clear goal
+- Your specific role and contributions
+- How you handled disagreements or obstacles
+- Quantified outcome where possible
+- What you learned about teamwork
+
+Q: Describe a time you had a conflict with a team member. How did you resolve it?
+Good answer elements:
+- Show you remained professional
+- Demonstrate you sought to understand their perspective
+- Describe concrete steps taken to resolve
+- Focus on positive resolution
+- Show growth or learning
+
+Q: Tell me about a time you had to influence someone without direct authority.
+Good answer elements:
+- Built a persuasive case with data/logic
+- Used active listening to understand concerns
+- Found common ground
+- Achieved buy-in through collaboration
+
+PROBLEM SOLVING AND INITIATIVE
+--------------------------------
+Q: Tell me about a time you identified and solved a problem before it became critical.
+Good answer elements:
+- How you noticed the issue
+- Analysis you performed
+- Proactive steps taken
+- Positive impact of early intervention
+
+Q: Describe a time you had to make a difficult decision with limited information.
+Good answer elements:
+- What information you did have
+- Your decision-making framework
+- How you mitigated risks
+- Outcome and retrospective
+
+Q: Tell me about a time you failed. What did you learn?
+Good answer elements:
+- Choose a real failure, not a fake one
+- Take ownership — don't blame others
+- Describe what went wrong specifically
+- Concrete lessons learned
+- How you applied those lessons later
+
+LEADERSHIP AND OWNERSHIP
+--------------------------
+Q: Tell me about a time you took initiative on a project.
+Good answer elements:
+- Why you saw the opportunity
+- How you proposed and got approval
+- Actions you took
+- Impact achieved
+
+Q: Describe a time you had to motivate a team or individual.
+Good answer elements:
+- Understand what motivates each person
+- Tailored your approach
+- Led by example
+- Measurable improvement in morale or output
+
+Q: Tell me about a time you had to manage a project under a tight deadline.
+Good answer elements:
+- Prioritisation process (most critical features/tasks first)
+- Communication with stakeholders
+- How you kept the team focused
+- Outcome and trade-offs made
+
+COMMUNICATION AND ADAPTABILITY
+--------------------------------
+Q: Describe a time you had to explain a complex technical concept to a non-technical audience.
+Good answer elements:
+- Used analogies and simple language
+- Checked for understanding
+- Adapted based on audience reaction
+- Achieved clear understanding
+
+Q: Tell me about a time you had to adapt to a major change.
+Good answer elements:
+- Initial reaction (honest)
+- How you processed and accepted the change
+- Steps to adapt quickly
+- Positive outcome from adaptability
+
+Q: Describe a time you received critical feedback. How did you respond?
+Good answer elements:
+- Received feedback professionally (no defensiveness)
+- Thanked the person for the feedback
+- Reflected on its validity
+- Made specific changes
+- Followed up to confirm improvement
+
+LEARNING AND GROWTH
+--------------------
+Q: Tell me about a time you had to learn something new quickly.
+Good answer elements:
+- Context: why rapid learning was needed
+- Approach: resources used, practice method
+- Timeline: how quickly you became proficient
+- Application: how you used the new knowledge
+
+Q: What is the most challenging project you have worked on?
+Good answer elements:
+- Technical or interpersonal challenges
+- Your specific contribution
+- How you overcame obstacles
+- Outcome and key learnings
+
+EVALUATION CRITERIA FOR BEHAVIORAL ANSWERS
+-------------------------------------------
+Excellent (8-10): Specific situation, clear problem, strong personal ownership, concrete measurable outcome, genuine reflection.
+Good (6-7): Specific situation, appropriate action, positive outcome, some personalisation.
+Average (4-5): Somewhat specific, actions clear but outcome vague, minimal reflection.
+Poor (0-3): Generic answer, uses "we" without specifying own role, no specific outcome, no learning demonstrated.

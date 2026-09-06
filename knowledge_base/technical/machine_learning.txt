@@ -1,0 +1,80 @@
+Machine Learning and AI Interview Questions
+===========================================
+
+MACHINE LEARNING FUNDAMENTALS
+------------------------------
+Q: What is the bias-variance tradeoff?
+A: Bias is error from wrong assumptions (underfitting). Variance is error from sensitivity to training data fluctuations (overfitting). As model complexity increases, bias decreases but variance increases. Goal: find the sweet spot. Regularisation helps reduce variance.
+
+Q: Explain cross-validation.
+A: Technique to evaluate model generalisation. K-fold: split data into K equal folds, train on K-1 folds, test on remaining, repeat K times, average results. Prevents overfitting to a specific train/test split. Common values: K=5 or K=10.
+
+Q: What is regularisation?
+A: Technique to prevent overfitting by penalising model complexity. L1 (Lasso): adds |weights| to loss, drives weights to zero (feature selection). L2 (Ridge): adds weights² to loss, shrinks weights (no zero). ElasticNet: combines L1 and L2.
+
+Q: Explain gradient descent.
+A: Optimisation algorithm that minimises loss function by iteratively updating parameters in direction of negative gradient. Variants: Batch GD (uses all data), Stochastic GD (one sample), Mini-batch GD (small batches). Adam, RMSprop are adaptive learning rate optimisers.
+
+ALGORITHMS
+----------
+Q: Decision Trees vs Random Forests.
+A: Decision Tree: single tree, easy to interpret, prone to overfitting. Random Forest: ensemble of trees trained on bootstrap samples with random feature subsets. More robust, higher accuracy, less interpretable. Uses bagging (bootstrap aggregating).
+
+Q: What is XGBoost?
+A: Gradient boosting algorithm that builds trees sequentially, each correcting errors of previous. Uses regularisation, handles missing values, very effective on tabular data. Won many Kaggle competitions.
+
+Q: Explain Support Vector Machines (SVM).
+A: Finds optimal hyperplane that maximises margin between classes. Kernel trick maps data to higher dimensions for non-linear classification. Effective for high-dimensional spaces, less effective on very large datasets.
+
+Q: What is K-Means clustering?
+A: Unsupervised algorithm that partitions data into K clusters. Steps: initialise K centroids, assign points to nearest centroid, update centroids, repeat until convergence. Elbow method to choose K. Sensitive to initialisation and outliers.
+
+NEURAL NETWORKS AND DEEP LEARNING
+----------------------------------
+Q: What is backpropagation?
+A: Algorithm to train neural networks by computing gradients of loss with respect to weights using chain rule. Works backwards from output layer to input layer. Enables efficient gradient computation for updating weights.
+
+Q: Explain common activation functions.
+A: ReLU: max(0, x), fast, can suffer from dying neurons. Sigmoid: (0,1) range, used in output for binary classification, vanishing gradient problem. Tanh: (-1,1), better than sigmoid for hidden layers. Softmax: multi-class probability distribution.
+
+Q: What is overfitting in neural networks and how to prevent it?
+A: Dropout: randomly deactivate neurons during training. Batch normalisation: normalise layer inputs. Early stopping: stop when validation loss increases. Data augmentation: artificially expand training data. Weight regularisation (L1/L2).
+
+Q: What are CNNs used for?
+A: Convolutional Neural Networks excel at image/visual data. Convolutional layers detect local features (edges, textures, objects). Pooling reduces spatial dimensions. Used for image classification, object detection, image segmentation.
+
+Q: What are RNNs and LSTMs?
+A: Recurrent Neural Networks process sequential data. LSTMs (Long Short-Term Memory) solve vanishing gradient problem with gates (input, forget, output) that control information flow. Used for text, time series, speech. Often replaced by Transformers now.
+
+NATURAL LANGUAGE PROCESSING
+-----------------------------
+Q: What is TF-IDF?
+A: Term Frequency-Inverse Document Frequency. TF: how often term appears in document. IDF: inverse of how many documents contain the term. Product gives importance of term in document relative to corpus. Used in information retrieval.
+
+Q: What are word embeddings?
+A: Dense vector representations of words that capture semantic meaning. Word2Vec, GloVe: predict context words. Captures analogies: king - man + woman ≈ queen. BERT and transformer-based models use contextual embeddings.
+
+Q: What is transfer learning?
+A: Using a pre-trained model as starting point for a new task. Fine-tune on domain-specific data. Saves training time and data. Common: ImageNet pre-trained CNNs for computer vision, BERT for NLP tasks.
+
+MODEL EVALUATION
+----------------
+Q: Precision vs Recall vs F1 Score.
+A: Precision: TP/(TP+FP) - of predicted positives, how many are correct. Recall (Sensitivity): TP/(TP+FN) - of actual positives, how many did we find. F1: harmonic mean of precision and recall. Use F1 when class imbalance exists. Use AUC-ROC for ranking.
+
+Q: What is AUC-ROC?
+A: Area Under the Receiver Operating Characteristic Curve. ROC plots True Positive Rate vs False Positive Rate at various thresholds. AUC=1.0 is perfect, 0.5 is random. Useful for binary classification evaluation.
+
+Q: How do you handle class imbalance?
+A: Resampling: oversample minority (SMOTE) or undersample majority. Class weights in loss function. Use appropriate metrics (F1, AUC instead of accuracy). Ensemble methods.
+
+RAG AND LLM TOPICS
+------------------
+Q: What is Retrieval-Augmented Generation (RAG)?
+A: RAG combines retrieval and generation. Query retrieves relevant documents from knowledge base (vector similarity search). Retrieved context is combined with query and fed to LLM for generation. Reduces hallucination, provides up-to-date information, requires no model fine-tuning.
+
+Q: What are vector databases?
+A: Specialised databases for storing and querying high-dimensional embeddings. Support approximate nearest neighbour (ANN) search. Examples: Pinecone, Weaviate, Chroma, FAISS. Used in semantic search, recommendation systems, RAG pipelines.
+
+Q: What is prompt engineering?
+A: Designing effective prompts for LLMs to get desired outputs. Techniques: few-shot examples, chain-of-thought reasoning, role assignment, structured output formats. Important skill for working with foundation models like IBM Granite.

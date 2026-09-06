@@ -1,0 +1,82 @@
+Python Interview Questions and Topics
+======================================
+
+CORE PYTHON FUNDAMENTALS
+-------------------------
+Q: What is the difference between a list and a tuple in Python?
+A: Lists are mutable (can be changed after creation), while tuples are immutable. Lists use square brackets [], tuples use parentheses (). Tuples are generally faster than lists and can be used as dictionary keys. Use tuples for data that should not change, lists when you need to add/remove elements.
+
+Q: Explain Python decorators.
+A: Decorators are functions that modify the behaviour of another function without changing its source code. They use the @decorator_name syntax. Common uses: logging, authentication, caching, timing.
+Example: @staticmethod, @classmethod, @property are built-in decorators.
+
+Q: What is the difference between *args and **kwargs?
+A: *args allows a function to accept any number of positional arguments as a tuple. **kwargs allows any number of keyword arguments as a dictionary.
+
+Q: Explain Python's GIL (Global Interpreter Lock).
+A: The GIL is a mutex that protects access to Python objects, preventing multiple threads from executing Python bytecode simultaneously. This simplifies memory management but limits multi-threaded CPU-bound performance. For CPU-bound tasks, use multiprocessing. For I/O-bound tasks, threading or asyncio work well.
+
+Q: What are Python generators?
+A: Generators are functions that use yield instead of return to produce a sequence of values lazily. They save memory because values are produced one at a time. Generator expressions use parentheses: (x*2 for x in range(10)).
+
+Q: Explain list comprehensions vs map/filter.
+A: List comprehensions are generally more readable and Pythonic: [x*2 for x in items if x > 0]. Map/filter are functional-style alternatives. List comprehensions are preferred in most cases for clarity.
+
+Q: What is the difference between shallow copy and deep copy?
+A: Shallow copy (copy.copy) creates a new object but references the same nested objects. Deep copy (copy.deepcopy) creates a completely independent copy of the object and all nested objects.
+
+Q: Explain Python's memory management.
+A: Python uses reference counting as the primary memory management strategy. When an object's reference count drops to zero, it is immediately deallocated. The garbage collector handles circular references. The memory allocator manages small objects efficiently using pools.
+
+OOP IN PYTHON
+--------------
+Q: Explain the four pillars of OOP in Python.
+A: 
+- Encapsulation: Bundling data and methods together; using private/protected attributes
+- Inheritance: Creating new classes based on existing ones; use super() to call parent methods
+- Polymorphism: Same interface, different implementations; method overriding
+- Abstraction: Hiding implementation details; abstract classes using ABC module
+
+Q: What is the difference between @classmethod and @staticmethod?
+A: @classmethod receives the class (cls) as first argument and can access class state. @staticmethod receives no implicit first argument and is just a regular function in the class namespace.
+
+Q: Explain __init__, __str__, __repr__, and __len__.
+A: These are dunder (magic) methods. __init__ initialises objects. __str__ returns human-readable string. __repr__ returns unambiguous representation. __len__ defines len() behaviour.
+
+DATA STRUCTURES
+---------------
+Q: Time complexity of Python built-in operations:
+- list.append(): O(1) amortised
+- list.insert(0): O(n)
+- dict.get(): O(1) average
+- set.add(): O(1) average
+- sorted(): O(n log n)
+
+Q: When would you use a set vs a list?
+A: Use set when you need uniqueness and fast O(1) membership testing. Use list when you need order, duplicates, or index access.
+
+COMMON PYTHON INTERVIEW TOPICS FOR SOFTWARE ROLES
+--------------------------------------------------
+- File I/O and context managers (with statement)
+- Exception handling (try/except/finally/else)
+- Regular expressions (re module)
+- Threading vs multiprocessing vs asyncio
+- Virtual environments and dependency management
+- Python packaging (setup.py, pyproject.toml)
+- Testing with pytest
+- Type hints and mypy
+- Common libraries: requests, numpy, pandas, SQLAlchemy
+
+MACHINE LEARNING WITH PYTHON
+-----------------------------
+Q: What is scikit-learn and what does it provide?
+A: scikit-learn is a machine learning library providing: classification, regression, clustering algorithms, preprocessing tools, model selection (cross-validation, grid search), and evaluation metrics.
+
+Q: Explain the train/test/validation split.
+A: Training set is used to fit the model. Validation set is used for hyperparameter tuning. Test set is held out to evaluate final model performance. Typical split: 70/15/15 or 80/10/10.
+
+Q: What is overfitting and how do you prevent it?
+A: Overfitting is when a model learns training data too well including noise, performing poorly on new data. Prevention: regularisation (L1/L2), dropout, cross-validation, early stopping, getting more data, feature selection, ensemble methods.
+
+Q: Difference between supervised and unsupervised learning?
+A: Supervised: labelled training data, predicts output (classification, regression). Unsupervised: no labels, finds patterns/structure (clustering, dimensionality reduction). Semi-supervised: some labelled, some unlabelled data.

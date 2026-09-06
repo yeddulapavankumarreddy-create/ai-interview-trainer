@@ -1,0 +1,126 @@
+Interview Evaluation Guidelines and Industry Expectations
+==========================================================
+
+TECHNICAL INTERVIEW EVALUATION CRITERIA
+-----------------------------------------
+Score 9-10 (Excellent):
+- Correct and complete solution
+- Considers edge cases and error handling
+- Explains time and space complexity
+- Discusses alternative approaches
+- Clean, maintainable code/explanation
+- Shows deep understanding of underlying concepts
+
+Score 7-8 (Good):
+- Correct solution with minor gaps
+- Understands core concepts
+- Some discussion of trade-offs
+- Good communication
+
+Score 5-6 (Acceptable):
+- Partially correct or correct with hints
+- Basic understanding demonstrated
+- Limited discussion of complexity or alternatives
+
+Score 3-4 (Below expectations):
+- Incorrect or very incomplete answer
+- Shows basic awareness but lacks depth
+- Needed significant guidance
+
+Score 0-2 (Not acceptable):
+- Could not answer
+- Fundamental misconceptions
+- No relevant knowledge demonstrated
+
+COMMUNICATION GUIDELINES
+--------------------------
+The interviewer evaluates:
+1. Clarity of explanation — can you explain your thought process?
+2. Active listening — did you understand the question?
+3. Structured thinking — do you approach problems systematically?
+4. Confidence without arrogance
+5. Asking clarifying questions when appropriate
+6. Acknowledging what you don't know rather than bluffing
+
+Tips for better communication:
+- Think out loud — share your reasoning process
+- Start with the brute force, then optimise
+- Define your assumptions explicitly
+- Summarise your approach before diving into details
+- Use concrete examples to illustrate abstract concepts
+
+INDUSTRY EXPECTATIONS BY LEVEL
+--------------------------------
+Student/Fresher:
+- Strong CS fundamentals (DS&A, OOP, basic SQL)
+- 1-2 personal projects demonstrating initiative
+- Learning mindset and willingness to grow
+- Basic understanding of software development lifecycle
+- Good communication and professional attitude
+
+0-2 Years Experience:
+- Solid programming skills in at least one language
+- Understanding of web technologies (frontend or backend)
+- Version control (Git) proficiency
+- Can build functional applications independently
+- Starting to understand system design concepts
+- Familiar with agile/scrum practices
+
+2-5 Years Experience:
+- Strong technical skills across multiple areas
+- Can architect medium-sized systems
+- Experience with production systems
+- Mentoring junior developers
+- Understanding of scalability and performance
+- Project ownership and delivery track record
+
+5+ Years Experience:
+- Technical leadership and architectural decisions
+- Cross-functional collaboration
+- Complex system design
+- Driving technical strategy
+- Mentoring and team building
+- Business impact awareness
+
+SOFTWARE ENGINEERING BEST PRACTICES
+--------------------------------------
+Code Quality:
+- Clean, readable code with meaningful names
+- Single Responsibility Principle
+- DRY (Don't Repeat Yourself)
+- Appropriate commenting (why, not what)
+- Error handling and edge cases
+- Unit tests for critical logic
+
+Version Control:
+- Meaningful commit messages
+- Feature branches
+- Pull request reviews
+- Never commit sensitive data
+
+Security Best Practices:
+- Never hardcode credentials
+- Input validation and sanitisation
+- SQL injection prevention (parameterised queries)
+- HTTPS for data in transit
+- Principle of least privilege
+
+COMMON REASONS CANDIDATES FAIL INTERVIEWS
+------------------------------------------
+Technical failures:
+- Cannot solve basic algorithmic problems
+- Weak understanding of fundamentals
+- Cannot explain their own projects
+- No awareness of complexity or trade-offs
+
+Communication failures:
+- Does not think out loud
+- Gives up without asking for help
+- Vague or generic answers
+- Defensive when given hints
+
+Attitude/fit failures:
+- Negative about past employers
+- Overconfident or underconfident
+- Not showing genuine interest
+- Poor questions for the interviewer

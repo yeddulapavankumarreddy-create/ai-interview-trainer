@@ -1,0 +1,91 @@
+System Design and Software Engineering Interview Questions
+==========================================================
+
+SYSTEM DESIGN PRINCIPLES
+-------------------------
+Q: How would you design a URL shortening service (like bit.ly)?
+A: 
+Requirements: shorten URLs, redirect to original, handle millions of requests.
+Components:
+- API service: POST /shorten returns short code, GET /{code} redirects
+- Database: store mapping of short_code -> original_url, creation_time, clicks
+- Short code generation: Base62 encoding of auto-increment ID or hash
+- Caching: Redis for popular URLs (80/20 rule - 20% URLs get 80% traffic)
+- CDN for global performance
+- Load balancer for multiple API servers
+Scale: 100M URLs/day = ~1160 writes/sec, reads much higher, use read replicas.
+
+Q: Design a distributed messaging queue.
+A: Key components: producers, queue/broker, consumers. Kafka-style: partitioned logs, consumer groups, offset tracking. Ensures at-least-once delivery. Use for decoupling services, event streaming.
+
+Q: Explain horizontal vs vertical scaling.
+A: Vertical (scale up): add more CPU/RAM to existing server. Has limits. Horizontal (scale out): add more servers. Requires load balancing, stateless services, distributed data.
+
+Q: What is CAP theorem?
+A: Distributed systems can only guarantee two of three: Consistency (all nodes see same data), Availability (every request gets a response), Partition tolerance (system works despite network partition). In practice, partition tolerance is required, so choose CP or AP.
+
+Q: Explain database sharding.
+A: Horizontal partitioning of database across multiple machines. Shard key determines which shard holds data. Challenges: cross-shard queries, rebalancing, hot spots. Alternatives: read replicas, caching.
+
+Q: What is eventual consistency?
+A: In distributed systems, updates propagate to all nodes eventually but not immediately. Trades consistency for availability and performance. Used in DNS, shopping carts, social media feeds.
+
+DATABASES
+---------
+Q: SQL vs NoSQL - when to use each?
+A: SQL (relational): structured data, ACID compliance, complex queries, relationships. Examples: PostgreSQL, MySQL.
+NoSQL: flexible schema, horizontal scaling, high write throughput. Types: document (MongoDB), key-value (Redis), column-family (Cassandra), graph (Neo4j).
+
+Q: What are ACID properties?
+A: Atomicity: transaction completes fully or not at all. Consistency: database remains in valid state. Isolation: concurrent transactions don't interfere. Durability: committed changes persist.
+
+Q: Explain database indexing.
+A: Index is a data structure (B-tree or hash) that improves query speed at the cost of storage and write performance. Primary index on primary key. Secondary indexes on frequently queried columns. Composite indexes for multi-column queries. Use EXPLAIN to analyse query plans.
+
+Q: What is database normalisation?
+A: Organising tables to reduce redundancy. 1NF: atomic values, no repeating groups. 2NF: no partial dependencies. 3NF: no transitive dependencies. Denormalisation trades redundancy for read performance.
+
+Q: Explain SQL JOIN types.
+A: INNER JOIN: rows with matches in both tables. LEFT JOIN: all left rows, matching right rows (NULL if no match). RIGHT JOIN: all right rows. FULL OUTER JOIN: all rows from both. CROSS JOIN: Cartesian product.
+
+REST API DESIGN
+---------------
+Q: REST API best practices.
+A: Use nouns not verbs in URLs (/users not /getUsers). HTTP methods: GET (read), POST (create), PUT (full update), PATCH (partial), DELETE. Use HTTP status codes correctly: 200 OK, 201 Created, 400 Bad Request, 401 Unauthorized, 404 Not Found, 500 Server Error. Version APIs (/api/v1/). Use pagination for collections. Return consistent JSON structure.
+
+Q: What is idempotency in REST APIs?
+A: An operation is idempotent if calling it multiple times has the same effect as calling it once. GET, PUT, DELETE are idempotent. POST is not. Important for retry logic in distributed systems.
+
+MICROSERVICES
+-------------
+Q: Monolith vs Microservices.
+A: Monolith: single deployable unit, simpler to develop initially, harder to scale specific parts. Microservices: independent services, can scale independently, complex operational overhead (service discovery, distributed tracing, network latency).
+
+Q: How do microservices communicate?
+A: Synchronous: REST HTTP, gRPC (binary, streaming). Asynchronous: message queues (RabbitMQ, Kafka). Choose based on latency requirements and coupling.
+
+CACHING
+-------
+Q: Caching strategies.
+A: Cache-aside (lazy loading): application manages cache, load on miss. Write-through: write to cache and DB simultaneously. Write-behind: write to cache, async to DB. Cache eviction: LRU (Least Recently Used), LFU, TTL.
+
+Q: What is Redis and when would you use it?
+A: Redis is an in-memory data structure store. Use cases: session storage, caching, rate limiting, pub/sub messaging, leaderboards. Supports strings, hashes, lists, sets, sorted sets.
+
+DESIGN PATTERNS
+---------------
+Singleton: one instance, global access point.
+Factory: create objects without specifying exact class.
+Observer: event-driven, publish-subscribe.
+Decorator: add behaviour dynamically.
+Strategy: interchange algorithms at runtime.
+Repository: abstraction over data layer.
+Dependency Injection: pass dependencies rather than creating them.
+
+SOLID PRINCIPLES
+----------------
+S - Single Responsibility: class does one thing.
+O - Open/Closed: open for extension, closed for modification.
+L - Liskov Substitution: subclasses can replace parents.
+I - Interface Segregation: small specific interfaces.
+D - Dependency Inversion: depend on abstractions not concretions.

@@ -1,0 +1,93 @@
+Data Structures and Algorithms Interview Questions
+==================================================
+
+ARRAYS AND STRINGS
+------------------
+Q: Find duplicates in an array.
+A: Use a hash set to track seen elements. Time: O(n), Space: O(n). Alternative: sort first, then check adjacent elements - O(n log n), O(1) space.
+
+Q: Reverse a string.
+A: Python: s[::-1] or "".join(reversed(s)). In-place with two pointers: O(n) time, O(1) space.
+
+Q: Find the maximum subarray sum (Kadane's algorithm).
+A: Keep track of current_max and global_max. current_max = max(element, current_max + element). O(n) time, O(1) space.
+
+Q: Two Sum problem.
+A: Use a hash map to store number:index pairs. For each element, check if target-element exists in map. O(n) time.
+
+LINKED LISTS
+------------
+Q: Detect a cycle in a linked list.
+A: Floyd's cycle detection (fast and slow pointers). Fast pointer moves 2 steps, slow moves 1. If they meet, there is a cycle. O(n) time, O(1) space.
+
+Q: Reverse a linked list.
+A: Iterative: use prev, current, next pointers. Recursive: recurse to the end, then rewire links. O(n) time.
+
+Q: Find the middle of a linked list.
+A: Use two pointers - fast moves 2 steps, slow moves 1. When fast reaches the end, slow is at the middle.
+
+TREES AND GRAPHS
+----------------
+Q: BFS vs DFS.
+A: BFS (Breadth-First Search): uses a queue, explores level by level, good for shortest path. DFS (Depth-First Search): uses stack/recursion, explores deep first, good for topological sort, cycle detection.
+
+Q: Binary search tree properties.
+A: Left subtree nodes < root < right subtree nodes. Inorder traversal gives sorted sequence. Search/insert/delete: O(log n) average, O(n) worst case (unbalanced).
+
+Q: Height of a binary tree.
+A: Recursive: 1 + max(height(left), height(right)). Base case: null node returns -1 or 0.
+
+Q: Check if binary tree is balanced.
+A: A tree is balanced if for every node, the height difference between left and right subtrees is at most 1. Use recursive height calculation.
+
+SORTING ALGORITHMS
+------------------
+Quick Sort: O(n log n) average, O(n²) worst. In-place. Not stable. Good cache performance.
+Merge Sort: O(n log n) always. Not in-place (O(n) space). Stable. Good for linked lists.
+Heap Sort: O(n log n). In-place. Not stable.
+Counting Sort: O(n+k) where k is range. Good for small integer ranges.
+Radix Sort: O(nk). Good for integers with limited digits.
+Bubble/Insertion/Selection Sort: O(n²). Only use for small arrays or nearly sorted data.
+
+DYNAMIC PROGRAMMING
+-------------------
+Q: What is dynamic programming?
+A: DP solves problems by breaking them into overlapping subproblems and storing results (memoisation or tabulation). Key indicators: optimal substructure and overlapping subproblems.
+
+Q: Fibonacci with DP.
+A: Memoisation (top-down): store computed fib(n) in a dictionary. Tabulation (bottom-up): build up from fib(0) and fib(1). O(n) time vs O(2^n) naive recursion.
+
+Q: Longest Common Subsequence (LCS).
+A: Classic DP problem. Use 2D dp[i][j] = length of LCS of s1[:i] and s2[:j]. O(m*n) time and space.
+
+Q: 0/1 Knapsack Problem.
+A: dp[i][w] = max value using first i items with capacity w. Either include item i or exclude it. O(n*W) time.
+
+HASH TABLES
+-----------
+Q: How does a hash table work?
+A: Hash function maps keys to indices. Collision resolution: chaining (linked list at each index) or open addressing (linear/quadratic probing). Average O(1) for get/set/delete.
+
+Q: What is a good hash function?
+A: Should distribute keys uniformly, be deterministic, fast to compute, and minimise collisions. Python's built-in hash() uses SipHash for strings.
+
+STACKS AND QUEUES
+-----------------
+Q: Implement a queue using two stacks.
+A: Stack1 for enqueue, Stack2 for dequeue. When dequeuing, if Stack2 empty, pop all from Stack1 to Stack2. Amortised O(1) per operation.
+
+Q: Valid parentheses problem.
+A: Use a stack. Push opening brackets. For closing brackets, check if top of stack is matching opening bracket. Stack should be empty at end.
+
+COMPLEXITY ANALYSIS
+-------------------
+Big-O notation describes the worst-case growth rate of an algorithm.
+O(1) - Constant: array index access, hash table lookup
+O(log n) - Logarithmic: binary search, balanced BST operations
+O(n) - Linear: linear search, single loop
+O(n log n) - Linearithmic: efficient sorting algorithms
+O(n²) - Quadratic: nested loops, bubble sort
+O(2^n) - Exponential: recursive Fibonacci, power set
+O(n!) - Factorial: permutations
+
+Space complexity follows same notation for auxiliary memory usage.

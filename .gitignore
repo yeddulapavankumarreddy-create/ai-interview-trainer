@@ -1,0 +1,63 @@
+﻿# ============================================================
+# AI Interview Trainer — .gitignore
+# ============================================================
+
+# ─── Environment / secrets ───────────────────────────────────
+.env
+backend/.env
+*.env
+
+# ─── Python virtual environment ──────────────────────────────
+venv/
+backend/venv/
+.venv/
+env/
+
+# ─── Python cache / compiled ─────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+.Python
+
+# ─── SQLite databases ────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+backend/*.db
+backend/test_interview_trainer.db
+
+# ─── Pytest cache ────────────────────────────────────────────
+.pytest_cache/
+.cache/
+
+# ─── Node / frontend ─────────────────────────────────────────
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# ─── Build / distribution ────────────────────────────────────
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# ─── Uploads (user resume files) ─────────────────────────────
+uploads/
+
+# ─── OS generated ────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── IDEs ────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ─── Logs ────────────────────────────────────────────────────
+*.log
+logs/
