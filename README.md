@@ -1,6 +1,6 @@
 # AI Interview Trainer Agent
 
-> **Problem Statement No. 22 — Interview Trainer Agent**  
+>  
 > IBM Internship Project · Powered by IBM Granite / watsonx.ai
 
 ---
