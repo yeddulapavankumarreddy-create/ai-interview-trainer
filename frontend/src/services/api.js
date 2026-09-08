@@ -3,8 +3,10 @@ import axios from 'axios'
 // In development the Vite dev server proxies /api → http://localhost:8000,
 // so we use a relative base URL.  This keeps all requests same-origin and
 // avoids CORS preflights entirely during development.
-// Set VITE_API_URL to an absolute URL only when deploying to a separate host.
-const API_BASE = import.meta.env.VITE_API_URL || ''
+// In production (GitHub Pages) call the deployed Render backend directly.
+const API_BASE = import.meta.env.PROD
+  ? 'https://ai-interview-trainer-k2ao.onrender.com'
+  : ''
 
 const api = axios.create({
   baseURL: API_BASE,
