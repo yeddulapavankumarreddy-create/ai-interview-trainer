@@ -53,7 +53,11 @@ app = FastAPI(
 )
 
 # CORS — allow the React dev server
-FRONTEND_ORIGINS = os.getenv("FRONTEND_ORIGINS", "http://localhost:5173,http://localhost:3000")
+FRONTEND_ORIGINS = os.getenv(
+    "FRONTEND_ORIGINS",
+    "http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000,"
+    "https://yeddulapavankumarreddy-create.github.io",
+)
 origins = [o.strip() for o in FRONTEND_ORIGINS.split(",")]
 
 app.add_middleware(
