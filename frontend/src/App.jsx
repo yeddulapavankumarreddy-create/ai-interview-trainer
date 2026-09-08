@@ -13,7 +13,7 @@ import Layout from './components/Layout'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/ai-interview-trainer">
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route element={<Layout />}>
