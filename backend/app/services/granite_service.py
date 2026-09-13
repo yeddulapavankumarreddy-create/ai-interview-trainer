@@ -151,14 +151,37 @@ def _extract_first_json_block(text: str, open_char: str) -> Optional[str]:
     return None
 
 
+def _strip_markdown_fences(text: str) -> str:
+    """
+    Remove markdown code fences that Granite sometimes wraps around JSON.
+
+    Handles patterns like:
+      ```json\\n{...}\\n```
+      ```\\n{...}\\n```
+      ```json {... } ```  (inline)
+    Returns the text with the fence wrapper removed; leaves the content intact.
+    """
+    # Strip leading/trailing whitespace first
+    stripped = text.strip()
+    # Match optional language tag: ```json or ``` at start, ``` at end
+    m = re.match(r'^```(?:json)?\s*([\s\S]*?)\s*```$', stripped)
+    if m:
+        return m.group(1).strip()
+    return text
+
+
 def _safe_json(text: str) -> Optional[Dict]:
     """
     Extract and parse the first valid JSON *object* from *text*.
 
     Handles Granite responses that include preamble text such as
-    "start symbol {" before the actual JSON payload.
+    "start symbol {" before the actual JSON payload, or markdown
+    code fences wrapping the JSON block.
     Falls back to a JSON array if no object is found.
     """
+    # Strip markdown fences if present
+    text = _strip_markdown_fences(text)
+
     # Fast path: the whole string is valid JSON already
     try:
         result = json.loads(text)
@@ -391,8 +414,11 @@ def _extract_json_array(text: str) -> Optional[List]:
 
     Uses the same depth-tracking extractor as _safe_json so that preamble
     text before the array (e.g. "Here are the questions: [...]") does not
-    prevent successful parsing.
+    prevent successful parsing.  Also strips markdown fences first.
     """
+    # Strip markdown fences if present
+    text = _strip_markdown_fences(text)
+
     # Fast path
     try:
         result = json.loads(text)
@@ -691,7 +717,7 @@ def generate_followup(
             role=profile.get("target_role", "Software Engineer"),
             interview_type=interview_type,
         )
-        raw = _call_granite(prompt, max_tokens=300)
+        raw = _call_granite(prompt, max_tokens=500)
         if raw is None:
             logger.warning("generate_followup: Granite call returned None — using demo fallback.")
         else:
@@ -773,7 +799,7 @@ def generate_report_summary(
             overall_score=round(overall_score, 1),
             qa_summary=qa_summary,
         )
-        raw = _call_granite(prompt, max_tokens=500)
+        raw = _call_granite(prompt, max_tokens=800)
         if raw:
             parsed = _safe_json(raw)
             if parsed:
@@ -860,7 +886,7 @@ def generate_preparation_plan(
             weak_areas=", ".join(weak_areas[:5]),
             topics=", ".join(recommended_topics[:6]),
         )
-        raw = _call_granite(prompt, max_tokens=1500)
+        raw = _call_granite(prompt, max_tokens=2000)
         if raw:
             parsed = _safe_json(raw)
             if parsed:
