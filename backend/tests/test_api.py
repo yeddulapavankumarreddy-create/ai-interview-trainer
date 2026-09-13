@@ -395,6 +395,49 @@ class TestSafeJson:
         assert result == {"outer": {"inner": 42}}
 
 
+    def test_markdown_fence_json_block(self):
+        """Granite sometimes wraps JSON in ```json ... ``` fences."""
+        raw = '```json\n{"score": 7, "strengths": ["Good"]}\n```'
+        result = self.safe_json(raw)
+        assert result is not None, "Should parse JSON wrapped in markdown fence"
+        assert result["score"] == 7
+
+    def test_markdown_fence_no_lang_tag(self):
+        """Granite sometimes uses ``` without json tag."""
+        raw = '```\n{"score": 5}\n```'
+        result = self.safe_json(raw)
+        assert result is not None, "Should parse JSON in unlabelled fence"
+        assert result["score"] == 5
+
+
+class TestStripMarkdownFences:
+    """Tests for _strip_markdown_fences helper."""
+
+    def setup_method(self):
+        from app.services.granite_service import _strip_markdown_fences
+        self.strip = _strip_markdown_fences
+
+    def test_strips_json_fence(self):
+        raw = '```json\n{"key": "value"}\n```'
+        assert self.strip(raw) == '{"key": "value"}'
+
+    def test_strips_plain_fence(self):
+        raw = '```\n{"key": "value"}\n```'
+        assert self.strip(raw) == '{"key": "value"}'
+
+    def test_no_fence_unchanged(self):
+        raw = '{"key": "value"}'
+        assert self.strip(raw) == raw
+
+    def test_plain_text_unchanged(self):
+        raw = 'just some text'
+        assert self.strip(raw) == raw
+
+    def test_strips_whitespace_inside_fence(self):
+        raw = '```json\n  {"key": 1}  \n```'
+        assert self.strip(raw) == '{"key": 1}'
+
+
 class TestExtractJsonArray:
     """Tests for _extract_json_array."""
 
